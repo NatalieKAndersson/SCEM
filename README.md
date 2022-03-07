@@ -1,6 +1,3 @@
-# SiCEM
-Creating an event matrix from single cell whole genome sequencing data.
-
 # SiCEM <img src="https://github.com/NatalieKAndersson/SiCEM/blob/main/SiCEM.JPG" align = "right" width="180"/>
 Single cell event matrix (SiCEM) is an algorithm for event matrix generation from single cell whole genome copy number sequencing data.
 
