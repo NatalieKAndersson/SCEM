@@ -4,6 +4,9 @@ Single cell event matrix (SCEM) is an algorithm for event matrix generation from
 <a href="https://zenodo.org/badge/latestdoi/297145258"><img src="https://zenodo.org/badge/297145258.svg" alt="DOI"></a>
 
 When using the algorithm, please cite: 
+bioRxiv 2022.04.01.486670
+
+doi: https://doi.org/10.1101/2022.04.01.486670
 
 ## Setting up SCEM
 
