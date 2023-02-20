@@ -18,9 +18,35 @@ devtools::install_github('NatalieKAndersson/SCEM')
 library("SCEM")
 ```
 
+The algorithm has the following dependencies
+```
+library("readxl")
+library("xlsxjars")
+library("xlsx")
+library("writexl")
+library("phangorn")
+library("stats")
+library("ade4")
+library("ape")
+library("tree")
+library("tidyverse")
+library("colorspace")
+library("ggplot2")
+library("ggtree")
+library("phytools")
+library("bbmle")
+library("picante")
+library("dendextend")
+library("ggforce")
+library("stringr")
+```
+If they are not installed you can install thm by using the command
 
+```
+install.packages(c("readxl","xlsxjars","xlsx","writexl","phangorn","stats","ade4","ape","tree","tidyverse","colorspace","ggplot2","ggtree","phytools","bbmle","picante","dendextend","ggforce","stringr"))
+```
 ## Example data set
-The file "Example.xlsx" contains an example of what the data set might look like. Through single cell whole genome sequencing, the copy number of each 1 Mbp (mega base pair) segment of each chromosome in each individual cell is approximated. This results in a matrix with thousands of rows indicating the copy number for each chromosome segment in each analyzed cell. In S. Figure 1 an example of a small proportion of what such a matrix might look like is visualized.
+Let's start by analyzing an example data set! The file "Example.xlsx" contains an example of what a scWGS-dataset might look like. Through single cell whole genome sequencing, the copy number of each 1 Mbp (mega base pair) segment of each chromosome in each individual cell is approximated. This results in a matrix with thousands of rows indicating the copy number for each chromosome segment in each analyzed cell. In S. Figure 1 an example of a small proportion of what such a matrix might look like is visualized.
 
 - First column: The bin number.
 - Second and third column: The start and end position for that bin.
