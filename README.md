@@ -33,4 +33,4 @@ The file "Example.xlsx" contains an example of what the data set might look like
 ## Algorithm
 The algorithm will scan through each cell to find the various genetic alterations, along with their copy numbers and start and end positions.
 
-<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Searchalgorithm.png" width="800"/>
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Searchalgorithm.png" width="400"/>
