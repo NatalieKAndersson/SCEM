@@ -34,6 +34,24 @@ Let's start by analyzing an example data set! The file "Example.xlsx" contains a
 
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Exampledata.JPG" width="800"/>
 
+Let's start by loading the data into R!
+
+```
+
+#Load your data.
+data <- load_data(filename="Example.xlsx",sheetname ="Example") #Extracting all of the CNV:s.
+dm <- load_dist(filename="Example.xlsx",sheetname ="Example") #Extracting each bin's start and end position.
+names(dm)[1]<-"Positions"
+nm <- load_name(filename="Example.xlsx",sheetname ="Example") #Extracting the column names (cell names or name of a group of cells with identical profiles).
+nrcells <- load_nrcells(filename="Example.xlsx",sheetname ="Example") #Extracting the number of cells represented by each column.
+
+#Let the algorithm know if any of the cells are from a particular time-point is otherwise more closely related to each other for some reason.
+#Example:
+samples <- list(1:7,8:16) #Group 1 and 2.
+
+co <- 1 #1 = 100 %. Choosing the cutoff for an event to be considered a stem event and thus be allocated to all cells in the EM.
+```
+
 ## Algorithm
 **See the document "Extended Methods.pdf" and "singlecell_flowchart.pdf" for a detailed explanation of the entire algorithm with examples.**
 
@@ -47,6 +65,10 @@ To make it simple:
 
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Comparebetween.png" width="400"/>
 
+To run the algorithm, simply write
+```
+EM <- SCEM(data,dm,nm,nrcells,samples,co) #Generates an event matrix based on the scWGS-dataset.
+```
 
 ## Event matrix
 The output of the algorithm is an event matrix illustrating which genetic alterations are found in each unique cell group. Each row is a genetic alteration and each column a unique cell group. The matrix elements is either a "1" if the alteration is present or "0" if it is not.
@@ -58,9 +80,53 @@ Based on the event matrix, phylogenetic trees can be reconstructed.
 
 **Maximum parsimony method**
 
+```
+mp_tree <- function(EM_phy){
+  MP_tree_pratchet <- pratchet(EM_phy, start = NULL, method = "fitch", maxit = 2000, k = 10, #Funktionen anv?nder sig av Fithchs algoritm. Pratchet = p ratchett (1999).
+                               trace = 1, all = FALSE, rearrangements = "TBR",
+                               perturbation = "ratchet")
+  MP_tree_pratchet <- root(MP_tree_pratchet, outgroup = root, resolve.root = TRUE)
+  treeRatchet <- acctran(MP_tree_pratchet, EM_phy)
+  plot(treeRatchet)
+  return(treeRatchet)}
+
+RMS_mptree <- mp_tree(EM_phy)
+RMSmp <- ggplot(RMS_mptree) + geom_tree() + geom_tiplab(size = 4)
+RMSmp <- RMSmp +  theme_tree()+xlim(c(0, 10))
+mytheme <- theme(plot.title = element_text(hjust = 0.5, size = (14), color = "black"))
+print(RMSmp+mytheme)
+s <- 10
+w <- 10
+ggsave(RMSmp,file="MP_tree.png",width = w,height = s)
+```
+
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/MP_tree.png" width="500"/>
 
 **Maximum likelihood method**
+```
+ml_tree <- function(Eventmatrix) {
+  dm_h <- dist.hamming(Eventmatrix) #Tar fram en avst?ndsmatris som ska ligga till grund f?r tr?dgenereringen.
+  starting_tree <- NJ(dm_h)
+  starting_tree <- root(starting_tree, outgroup = root,resolve.root = TRUE)
+  Lf <- pml(starting_tree, Eventmatrix) #Obtaining an object of class pml
+  Lf_JC <- optim.pml(Lf, model = "ER")#Jukes Cantor model.
+  #bs <- bootstrap.pml(Lf_JC, bs=100, optNni=TRUE)
+  #treeBS <- plotBS(Lf_JC$tree,bs, type = "phylogram")
+  #s <- 15
+  #ggsave(treeBS,file="bootstrap_ml.png",width = s,height = s)
+  return(Lf_JC)
+}
+
+RMS_mltree <- ml_tree(EM_phy)
+RMS_mltree <- RMS_mltree$tree
+RMSml <- ggplot(RMS_mltree) + geom_tree() + geom_tiplab(size = 4)
+RMSml <- RMSml +  theme_tree()+xlim(c(0, 0.4))
+mytheme <- theme(plot.title = element_text(hjust = 0.5, size = (14), color = "black"))
+print(RMSml+mytheme)
+s <- 10
+w <- 10
+ggsave(RMSml,file="ML_tree.png",width = w,height = s)
+```
 
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/ML_tree.png" width="500"/>
 
