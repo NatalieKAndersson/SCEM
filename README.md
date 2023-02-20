@@ -54,4 +54,9 @@ The output of the algorithm is an event matrix illustrating which genetic altera
 ## Phylogeny
 Based on the event matrix, phylogenetic trees can be reconstructed.
 
-<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/phylogeny_mp.png" width="200"/>
+Maximum parsimony method
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/MP_tree.png" width="200"/>
+
+Maximum likelihood method
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/ML_tree.png" width="200"/>
+
