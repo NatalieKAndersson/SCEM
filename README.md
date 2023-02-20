@@ -75,6 +75,11 @@ The output of the algorithm is an event matrix illustrating which genetic altera
 
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/EM_example.JPG" width="800"/>
 
+Save the event matrix in an excel spreadsheet by writing.
+```
+write_xlsx(as.data.frame(EM), "EM_final.xlsx")
+```
+
 ## Phylogeny
 Based on the event matrix, phylogenetic trees can be reconstructed.
 
