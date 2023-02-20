@@ -28,5 +28,5 @@ The file "Example.xlsx" contains an example of what the data set might look like
 - Fifth column and beyond: The cells. Each column corresponds to a single cell or group of cells, indicated by row two. For example C1_1 contains 20 cells with identical genomic profiles and C1_7 is a single cell having a unique genomic profile.
 - Each matrix element is the copy number in that particular chromosomal segment.
 
-<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Exampledata.JPG" width="400"/>
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Exampledata.JPG" width="700"/>
 
