@@ -49,7 +49,7 @@ As a second step it compares the genetic alterations found across the columns to
 ## Event matrix
 The output of the algorithm is an event matrix illustrating which genetic alterations are found in each unique cell group. Each row is a genetic alteration and each column a unique cell group. The matrix elements is either a "1" if the alteration is present or "0" if it is not.
 
-<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/EM_example.JPG" width="500"/>
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/EM_example.JPG" width="700"/>
 
 ## Phylogeny
 Based on the event matrix, phylogenetic trees can be reconstructed.
