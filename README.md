@@ -35,13 +35,15 @@ Let's start by analyzing an example data set! The file "Example.xlsx" contains a
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Exampledata.JPG" width="800"/>
 
 ## Algorithm
-For a detailed explanation of how the algorithm works, see the document "Extended Methods.pdf".
+**See the document "Extended Methods.pdf" and "singlecell_flowchart.pdf" for a detailed explanation of the entire algorithm with examples.**
 
-As a first step the algorhtm considers each column by itself. It then identifies all genetic alterations, along with their copy numbers and start and end positions in that column.
+To make it simple:
+
+1. As a first step the algorhtm considers each column by itself. It then identifies all genetic alterations, along with their copy numbers and start and end positions in that column.
 
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Searchalgorithm.png" width="400"/>
 
-As a second step it compares the genetic alterations found across the columns to identify cases where there are consecutive chromosomal alterations.
+2. As a second step it compares the genetic alterations found across the columns to identify cases where there are consecutive chromosomal alterations.
 
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Comparebetween.png" width="400"/>
 
