@@ -49,16 +49,16 @@ As a second step it compares the genetic alterations found across the columns to
 ## Event matrix
 The output of the algorithm is an event matrix illustrating which genetic alterations are found in each unique cell group. Each row is a genetic alteration and each column a unique cell group. The matrix elements is either a "1" if the alteration is present or "0" if it is not.
 
-<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/EM_example.png" width="200"/>
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/EM_example.JPG" width="200"/>
 
 ## Phylogeny
 Based on the event matrix, phylogenetic trees can be reconstructed.
 
-# Maximum parsimony method
+**Maximum parsimony method
 
-<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/MP_tree.png" width="400"/>
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/MP_tree.png" width="500"/>
 
-# Maximum likelihood method
+**Maximum likelihood method
 
-<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/ML_tree.png" width="400"/>
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/ML_tree.png" width="500"/>
 
