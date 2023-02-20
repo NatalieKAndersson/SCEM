@@ -31,6 +31,20 @@ The file "Example.xlsx" contains an example of what the data set might look like
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Exampledata.JPG" width="800"/>
 
 ## Algorithm
-The algorithm will scan through each cell to find the various genetic alterations, along with their copy numbers and start and end positions.
+For a detailed explanation of how the algorithm works, see the document "Extended Methods.pdf".
+
+As a first step the algorhtm considers each column by itself. It then identifies all genetic alterations, along with their copy numbers and start and end positions in that column.
 
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Searchalgorithm.png" width="400"/>
+
+As a second step it compares the genetic alterations found across the columns.
+
+## Event matrix
+The output of the algorithm is an event matrix illustrating which genetic alterations are found in each unique cell group. Each row is a genetic alteration and each column a unique cell group. The matrix elements is either a "1" if the alteration is present or "0" if it is not.
+
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/EM.png" width="200"/>
+
+## Phylogeny
+Based on the event matrix, phylogenetic trees can be reconstructed.
+
+<img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/phylogeny_mp.png" width="200"/>
