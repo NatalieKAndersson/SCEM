@@ -37,7 +37,7 @@ As a first step the algorhtm considers each column by itself. It then identifies
 
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Searchalgorithm.png" width="400"/>
 
-As a second step it compares the genetic alterations found across the columns.
+As a second step it compares the genetic alterations found across the columns to identify cases where there are consecutive chromosomal alterations.
 
 <img src="https://github.com/NatalieKAndersson/SCEM/blob/main/Figures/Comparebetween.png" width="400"/>
 
